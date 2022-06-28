@@ -1,0 +1,12 @@
+﻿@model ICollection<Film>
+
+    <h1>All Films</h1> 
+
+@foreach(Film f in Model){
+    <div>============</div>
+
+    <h4>@f.Title</h4>
+    <div>Budget: $@f.Budget </div>
+    <div>Year: @f.Year </div>
+    <div>@f.Duration minutes</div>
+}
