@@ -47,6 +47,19 @@
 
             Films.Add(whiplash);
             Roles.Add(andrew);
+
+            Film morbius = new Film(IdCounter++, "Morbius", 2022, 90, 300000000);
+            Films.Add(morbius);
+
+            Film lighthouse = new Film(IdCounter++, "The Lighthouse", 2019, 100, 20000000);
+            Films.Add(lighthouse);
+
+            Film babyDriver = new Film(IdCounter++, "Baby Driver", 2017, 110, 4000000);
+            Films.Add(babyDriver);
+
+            Film drStrange = new Film(IdCounter++, "Doctor Strange in the Multiverse of Madness", 2022, 126, 74987498349);
+            Films.Add(drStrange);
+
         }
     }
 }
