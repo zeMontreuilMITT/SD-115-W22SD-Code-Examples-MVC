@@ -12,7 +12,8 @@ namespace SD_115_W22SD_Code_Examples_MVC.Controllers
         {
             _logger = logger;
         }
-
+        
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
