@@ -1,6 +1,7 @@
 ﻿@model ICollection<Film>
 
-    <h1>All Films</h1> 
+
+<h1>@ViewBag.PageTitle</h1>
 
 @foreach(Film f in Model){
     <div>============</div>
@@ -10,3 +11,5 @@
     <div>Year: @f.Year </div>
     <div>@f.Duration minutes</div>
 }
+
+@ViewBag.Message
