@@ -2,64 +2,35 @@
 {
     public static class Database
     {
-        public static ICollection<Film> Films { get; set; }
-        public static ICollection<Role> Roles { get; set; }
-        public static ICollection<Actor> Actors { get; set; }
+        public static ICollection<User> Users { get; set; } = new HashSet<User>();
+        public static ICollection<Reaction> Reactions { get; set; } = new HashSet<Reaction>();
+        public static ICollection<Post> Posts { get; set; } = new HashSet<Post>();
         public static int IdCounter { get; set; }
 
         static Database()
         {
-            Films = new HashSet<Film>();
-            Roles = new HashSet<Role>();
-            Actors = new HashSet<Actor>();
+            User firstU = new User(IdCounter++, "AwesomeGamer9000");
+            User secondU = new User(IdCounter++, "SpecialPerson12");
+            User thirdU = new User(IdCounter++, "**ExtraMysterious**");
+            User fourthU = new User(IdCounter++, "NumberOneGrandpa");
 
-            Film topGun = new Film(IdCounter++, "Top Gun", 2022, 120, 30000000);
-            Actor tomCruise = new Actor(IdCounter++, "Tom Cruise");
-            Role maverick = new Role(IdCounter++, "Maverick", topGun, tomCruise);
-            topGun.Roles.Add(maverick);
-            tomCruise.Roles.Add(maverick);
+            Post firstPost = new Post(IdCounter++, "Get good scrub", firstU);
+            firstU.Posts.Add(firstPost);
 
-            Films.Add(topGun);
-            Roles.Add(maverick);
-            Actors.Add(tomCruise);
+            Post secondPost = new Post(IdCounter++, "lol bad game", firstU);
+            firstU.Posts.Add(secondPost);
 
-            Actor jenniferConnelly = new Actor(IdCounter++, "Jennifer Connelly");
-            Role penny = new Role(IdCounter++, "Penny", topGun, jenniferConnelly);
-            jenniferConnelly.Roles.Add(penny);
+            Post thirdPost = new Post(IdCounter++, "I am so proud of my grandchildren", fourthU);
+            fourthU.Posts.Add(thirdPost);   
+           
+            Users.Add(firstU);
+            Users.Add(secondU);
+            Users.Add(thirdU);
+            Users.Add(fourthU);
 
-            Actors.Add(jenniferConnelly);
-            Roles.Add(penny);
-            topGun.Roles.Add(penny);
-
-            Actor milesTeller = new Actor(IdCounter++, "Miles Teller");
-            Role rooster = new Role(IdCounter++, "Rooster", topGun, milesTeller);
-            milesTeller.Roles.Add(rooster);
-            topGun.Roles.Add(rooster);
-
-            Actors.Add(milesTeller);
-            Roles.Add(rooster);
-
-            Film whiplash = new Film(IdCounter++, "Whiplash", 2014, 106, 200000000);
-
-            Role andrew = new Role(IdCounter++, "Andrew", whiplash, milesTeller);
-            whiplash.Roles.Add(andrew);
-            milesTeller.Roles.Add(andrew);
-
-            Films.Add(whiplash);
-            Roles.Add(andrew);
-
-            Film morbius = new Film(IdCounter++, "Morbius", 2022, 90, 300000000);
-            Films.Add(morbius);
-
-            Film lighthouse = new Film(IdCounter++, "The Lighthouse", 2019, 100, 20000000);
-            Films.Add(lighthouse);
-
-            Film babyDriver = new Film(IdCounter++, "Baby Driver", 2017, 110, 4000000);
-            Films.Add(babyDriver);
-
-            Film drStrange = new Film(IdCounter++, "Doctor Strange in the Multiverse of Madness", 2022, 126, 74987498349);
-            Films.Add(drStrange);
-
+            Posts.Add(firstPost);
+            Posts.Add(secondPost);
+            Posts.Add(thirdPost);
         }
     }
 }

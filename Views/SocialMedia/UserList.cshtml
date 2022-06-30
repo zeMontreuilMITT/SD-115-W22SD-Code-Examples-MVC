@@ -1,0 +1,7 @@
+﻿@model ICollection<User>
+
+    <h4>All Users</h4>
+
+    @foreach(User u in Model) {
+        <div>@u.Name</div>
+    }
