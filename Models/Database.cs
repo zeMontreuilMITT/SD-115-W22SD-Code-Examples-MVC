@@ -5,7 +5,13 @@
         public static ICollection<User> Users { get; set; } = new HashSet<User>();
         public static ICollection<Reaction> Reactions { get; set; } = new HashSet<Reaction>();
         public static ICollection<Post> Posts { get; set; } = new HashSet<Post>();
-        public static int IdCounter { get; set; }
+        public static int IdCounter { get; set; } = 1;
+
+        public static Post CreatePost(string content)
+        {
+            Post newPost = new Post(IdCounter++, content);
+            return newPost;
+        }
 
         static Database()
         {

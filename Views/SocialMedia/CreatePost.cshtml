@@ -1,0 +1,9 @@
+﻿@model User
+
+<h4>Creating a new Post for @Model.Name</h4>
+
+<form asp-action="CreatePost" method="post">
+    <textarea name="content" placeholder="Enter post content"></textarea>
+    <input type="hidden" value="@Model.Id" name="userId" />
+    <button type="submit">Submit</button>
+</form>

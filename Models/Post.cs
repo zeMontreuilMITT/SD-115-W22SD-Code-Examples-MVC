@@ -8,6 +8,11 @@
         public User User { get; set; }
         public ICollection<Reaction> Reactions { get; set; } = new HashSet<Reaction>();
 
+        public Post(int id, string content)
+        {
+            Id = id;
+            Content = content;
+        }
         public Post(int id, string content, User user)
         {
             id = Id;
