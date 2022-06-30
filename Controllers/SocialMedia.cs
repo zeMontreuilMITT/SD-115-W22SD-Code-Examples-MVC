@@ -9,5 +9,24 @@ namespace SD_115_W22SD_Code_Examples_MVC.Controllers
         {
             return View("UserList", Database.Users);
         }
+
+        public IActionResult UserDetails(int? id)
+        {
+            if(id != null)
+            {
+                try
+                {
+                    User user = Database.Users.First(u => u.Id == id);
+                    return View(user);
+                }
+                catch
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+            }
+
+            return RedirectToAction("Error", "Home");
+        }
+
     }
 }

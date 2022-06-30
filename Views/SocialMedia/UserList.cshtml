@@ -1,7 +1,15 @@
 ﻿@model ICollection<User>
 
-    <h4>All Users</h4>
+    <h2>All Users</h2>
 
     @foreach(User u in Model) {
-        <div>@u.Name</div>
+        <h4> 
+            <a 
+                asp-action="UserDetails"
+                asp-route-id="@u.Id"
+            >
+                @u.Name
+            </a>
+        </h4>
     }
+}

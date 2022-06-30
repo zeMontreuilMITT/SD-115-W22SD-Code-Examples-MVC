@@ -31,6 +31,18 @@
             Posts.Add(firstPost);
             Posts.Add(secondPost);
             Posts.Add(thirdPost);
+
+            Reaction firstReaction = new Reaction(IdCounter++, false, firstPost, secondU);
+            Reaction secondReaction = new Reaction(IdCounter++, false, firstPost, thirdU);
+
+            firstPost.Reactions.Add(firstReaction);
+            firstPost.Reactions.Add(secondReaction);
+
+            secondU.Reactions.Add(firstReaction);
+            thirdU.Reactions.Add(secondReaction);
+
+            Reactions.Add(firstReaction);
+            Reactions.Add(secondReaction);
         }
     }
 }
